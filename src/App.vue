@@ -19,8 +19,5 @@ import TopHeader from '@/components/layouts/TopHeader.vue'
 <style lang="less" scoped>
    .win {
     display: flex;
-    div {
-      display: block;
-    }
   }
 </style>

@@ -7,31 +7,31 @@ export default defineComponent ({
     const menu = [
       {
         id: 1,
-        icon: '主页',
+        icon: 'icon-eyesHome',
         label: '主页',
         router: '主页'
       },
       {
         id: 2,
-        icon: '功能',
+        icon: 'icon-eyesCategory',
         label: '功能',
         router: '功能'
       },
       {
         id: 3,
-        icon: '个人',
+        icon: 'icon-eyesProfile',
         label: '个人',
         router: '个人'
       },
       {
         id: 4,
-        icon: '消息',
+        icon: 'icon-eyesMessage',
         label: '消息',
         router: '消息'
       },
       {
         id: 5,
-        icon: '设置',
+        icon: 'icon-eyesSetting',
         label: '设置',
         router: '设置'
       }
@@ -59,6 +59,7 @@ export default defineComponent ({
         </div>
       </li>
       <li class="menu" v-for="(item, index) in menu" :key="index" @click="handleMenuClick(item.label)">
+        <i class="iconfont" :class="item.icon"></i>
         {{item.label}}
       </li>
     </ul>
@@ -68,9 +69,7 @@ export default defineComponent ({
 
 <style lang="less" scoped>
   .left-menu {
-    min-width: 110px;
-    max-width: 300px;
-    width: 20vw;
+    width: 170px;
     background-color: rgb(197, 202, 202);
     overflow-x: hidden;
     ul {
@@ -104,5 +103,52 @@ export default defineComponent ({
         bottom: 20px;
       }
     }
+  }
+
+  // 宽度小于800，则left-menu宽度为110
+  @media (max-width: 800px) {
+    .left-menu {
+      width: 110px
+    }
+  }
+
+  // iconfont.cn
+  @font-face {
+    font-family: "iconfont"; /* Project id 3613037 */
+    src: url('//at.alicdn.com/t/c/font_3613037_jgek4e54qk.woff2?t=1661741658846') format('woff2'),
+        url('//at.alicdn.com/t/c/font_3613037_jgek4e54qk.woff?t=1661741658846') format('woff'),
+        url('//at.alicdn.com/t/c/font_3613037_jgek4e54qk.ttf?t=1661741658846') format('truetype')
+  }
+
+  .iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .icon-eyesCategory:before {
+    content: "\e745";
+  }
+
+  .icon-eyesHome:before {
+    content: "\e746";
+  }
+
+  .icon-eyesNotification:before {
+    content: "\e747";
+  }
+
+  .icon-eyesMessage:before {
+    content: "\e748";
+  }
+
+  .icon-eyesProfile:before {
+    content: "\e749";
+  }
+
+  .icon-eyesSetting:before {
+    content: "\e74a";
   }
 </style>
