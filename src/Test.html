@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Page Title</title>
+</head>
+<body>
+  <script>
+    // http://blog.leapoahead.com/2015/09/15/js-closure/
+    // 工作域
+    'use strict'
+    var myCourse = (function outerFunction() {
+      var hidden = 1
+      return {
+        inc: function innerFunction() {
+          return hidden++
+        },
+        get: () => {
+          return hidden
+        }
+      }
+    }())
+    console.log(myCourse.inc())
+    console.log(myCourse.inc())
+    console.log(myCourse.inc())
+    console.log(myCourse.get())
+  </script>
+</body>
+
+</html>
