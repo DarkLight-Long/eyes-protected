@@ -3,10 +3,10 @@
 Remind myself to take care of my eyes
 
 ## Tech
-[Vue3](https://staging-cn.vuejs.org/)
-Typescript
-[pinia](https://pinia.vuejs.org/)
-[vueRouter](https://router.vuejs.org/zh/)
+[Vue3](https://staging-cn.vuejs.org/) +
+Typescript +
+[pinia](https://pinia.vuejs.org/) +
+[vueRouter](https://router.vuejs.org/zh/) +
 [electron](https://www.electronjs.org/)
 
 ## Help
@@ -21,3 +21,6 @@ npm init vue@latest
 
 # Node version
 16.15.1
+
+# plugin
+Vue Language Features(Volar) + Typescript Vue plugin(Volar)

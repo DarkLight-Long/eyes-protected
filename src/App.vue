@@ -1,7 +1,17 @@
-<script setup lang="ts">
+<script lang="ts">
 import { RouterView } from 'vue-router'
-import LeftMenu from '@/components/layouts/LeftMenu.vue';
+import LeftMenu from '@/components/layouts/LeftMenu.vue'
 import TopHeader from '@/components/layouts/TopHeader.vue'
+import { defineComponent } from 'vue'
+
+export default defineComponent ({
+  name: 'App',
+  components: {
+    RouterView,
+    LeftMenu,
+    TopHeader
+  }
+})
 </script>
 
 <template>
@@ -9,7 +19,7 @@ import TopHeader from '@/components/layouts/TopHeader.vue'
     <div>
       <LeftMenu />
     </div>
-    <div>
+    <div class="right">
       <TopHeader />
       <RouterView />
     </div>

@@ -3,11 +3,16 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 const router = createRouter({
   history: createWebHashHistory(import.meta.env.BASE_URL),
   routes: [
-    // {
-    //   path: '/',
-    //   name: 'home',
-    //   component: HomeView
-    // },
+    {
+      path: '/',
+      name: 'Home',
+      component: () => import('@/views/windmill/WindCar.vue')
+    },
+    {
+      path: '/Message',
+      name: 'Message',
+      component: () => import('@/views/message/MessageList.vue')
+    }
     // {
     //   path: '/about',
     //   name: 'about',

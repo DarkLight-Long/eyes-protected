@@ -5,6 +5,9 @@
   margin: 0 auto;
   /* padding: 2rem; */
   font-weight: normal;
+
+  /* 禁用文本选择 */
+  -webkit-user-select: none;
 }
 
 a,

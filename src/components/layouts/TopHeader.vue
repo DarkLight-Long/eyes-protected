@@ -1,16 +1,18 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import { useRouter } from 'vue-router'
+import { sendChannelMsg } from '@/components/utils/channelUtils'
 
 export default defineComponent ({
   name: 'TopHeader',
   setup () {
     const router = useRouter()
     const handleBack = () => {
-      router.back()
+      console.log('back');
+      // router.back()
     }
     const handleClose = () => {
-      console.log('close')
+      sendChannelMsg('close')
     }
     return { handleBack, handleClose }
   }
@@ -27,17 +29,32 @@ export default defineComponent ({
 
 <style lang="less" scoped>
   .top-header {
+    // 解决 无边框不可拖拽
+    -webkit-app-region: drag;
+
     width: calc(100vw - 170px);
+    height: 44px;
     display: flex;
     justify-content: space-between;
-    background-color: #b45e5e14;
+    background-color: aliceblue;
     .back {
-      margin-left: 10px
+      // 解决 解决无边框不可拖拽时导致的按钮不可点击
+      -webkit-app-region: no-drag;
+      
+      margin-left: 10px;
+      z-index: 99;
     }
     .close {
-      margin-right: 10px
+      // 解决 解决无边框不可拖拽时导致的按钮不可点击
+      -webkit-app-region: no-drag;
+
+      margin-right: 10px;
+      z-index: 99;
     }
-    .back:hover {
+  }
+
+  @media(hover:hover) {
+    .back:hover{
       opacity: 0.5;
     }
     .close:hover {
@@ -45,11 +62,11 @@ export default defineComponent ({
     }
   }
 
-  @media(max-width: 800px) {
-    .top-header {
-      width: calc(100vw - 110px)
-    }
-  }
+  // @media(max-width: 800px) {
+  //   .top-header {
+  //     width: calc(100vw - 110px)
+  //   }
+  // }
 
   @font-face {
     font-family: "iconfont"; /* Project id 3613037 */
