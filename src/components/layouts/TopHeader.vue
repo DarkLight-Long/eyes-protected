@@ -1,15 +1,48 @@
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import { sendChannelMsg } from '@/components/utils/channelUtils'
+import webSocket from '@/components/utils/webSocketUtils'
 
 export default defineComponent ({
   name: 'TopHeader',
   setup () {
+    webSocket.onmessage = (message) => {
+      console.log(message)
+    }
+
+    watch(() => webSocket.readyState, () => {
+      if (webSocket.readyState === 1) {
+        const func = setInterval(() => {
+          if (webSocket.readyState === 1) {
+            webSocket.send('hello')
+          } else {
+            switch(webSocket.readyState) {
+              case 0:
+                console.log('websocket 连接异常, 连接中...')
+                break
+              case 2: 
+                console.log('websocket 连接异常, 关闭中...')
+                break
+              case 3: 
+                console.log('websocket 连接异常, 已关闭')
+                break
+              default: 
+                console.log('websocket 连接异常, 未知状态')
+            }
+            clearInterval(func)
+          }
+        }, 6000)
+      } else {
+        console.log('websocket 连接异常')
+      }
+    })
+
+    
+
     const router = useRouter()
     const handleBack = () => {
-      console.log('back');
-      // router.back()
+      router.back()
     }
     const handleClose = () => {
       sendChannelMsg('close')
