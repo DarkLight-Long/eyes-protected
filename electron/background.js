@@ -48,25 +48,29 @@ app.on('window-all-closed', () => {
   }
 })
 
+const notification = (title, body = '', silent = false, timeoutType = 'default') => {
+  new Notification({title, body, silent, timeoutType}).show()
+}
+
 ipcMain.on('port', (event) => {
   event.ports[0].on('message', (msg) => {
+    console.log(msg.data)// log在控制台
     if (msg && msg.data) {
-      switch(msg.data) {
-        case 'close': 
-          app.quit()
+      switch(msg.data.flag) {
+        case 'close':
+          notification('应用退出提醒', '应用3s后退出')
+          setTimeout(() => { app.quit() }, 3000)
           break
+        case 'welcome':
+          notification('应用启动', '应用启动')
+          break
+        case 'normal':
+          notification(msg.data.msg.title, msg.data.msg.body, true, 'never')
         default:
-          console.log(msg.data)// log在控制台
-          new Notification({
-            title: '提示',
-            body: '未知标识' + msg.data
-          }).show()
+          notification('未知')
       }
     } else {
-      new Notification({
-        title: '提示',
-        body: '未知标识' + msg.data
-      }).show()
+      notification('错误')
     }
   })
 

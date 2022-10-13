@@ -24,3 +24,6 @@ npm init vue@latest
 
 # plugin
 Vue Language Features(Volar) + Typescript Vue plugin(Volar)
+
+# Note
+##### piana 本质上(可以看作)是将store持久化，其他交给开发

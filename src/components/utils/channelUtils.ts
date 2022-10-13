@@ -8,6 +8,23 @@ ipcRenderer.postMessage('port', null, [port2])
  * 发送消息
  * @param flag 操作标识 
  */
-export const sendChannelMsg = (flag: string) => {
-  port1.postMessage(flag)
+export const sendChannelMsg = (flag: ChannelMsgFlag, msg: ChannelMsg = new ChannelMsg()) => {
+  port1.postMessage({ flag, msg })
+}
+
+/**
+ * 消息标志
+ */
+export enum ChannelMsgFlag {
+  CLOSE = 'close',
+  WELCOME = 'welcome',
+  NORMAL = 'normal',
+  TIP = 'tip'
+}
+/**
+ * 消息体
+ */
+export class ChannelMsg {
+  title: string = ''
+  body: string = ''
 }

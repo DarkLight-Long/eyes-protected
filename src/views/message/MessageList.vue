@@ -1,9 +1,12 @@
 <script lang="ts">
+import { useCounterStore } from '@/store/counter';
 import { computed, defineComponent, ref, watch } from 'vue';
 
 export default defineComponent({
   name: 'MessageList',
   setup () {
+    const counter = useCounterStore()
+
     const msg = ref({})
     msg.value = 'Message List'
 
@@ -17,8 +20,9 @@ export default defineComponent({
 
     const handleChange = () => {
       msg.value = 'Message Changed'
+      counter.increment()
     }
-    return { msg, handleChange, msgCache }
+    return { msg, handleChange, msgCache, counter }
   }
 });
 </script>
@@ -28,6 +32,7 @@ export default defineComponent({
     {{msg}}
     <button @click="handleChange">Click</button>
     {{msgCache}}
+    {{counter.counter}}
   </div>
 </template>
 
