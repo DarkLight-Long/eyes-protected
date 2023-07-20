@@ -26,4 +26,7 @@ npm init vue@latest
 Vue Language Features(Volar) + Typescript Vue plugin(Volar)
 
 # Note
-##### piana 本质上(可以看作)是将store持久化，其他交给开发
+##### piana 
+本质上(可以看作)是将store持久化，其他交给开发
+##### vite --host
+--host 命令用于开放ip(包括127.0.0.1)，否则只能localhost访问应用，原因未知
