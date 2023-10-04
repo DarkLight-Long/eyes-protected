@@ -38,8 +38,10 @@ export default defineComponent ({
       }
     ]
     const router = useRouter()
+    const checkedMenu = ref({})
     const handleMenuClick = (route : string) => {
       router.push({ path: route })
+      checkedMenu.value = route
     }
     const user = {
       name: 'Admin',
@@ -54,7 +56,7 @@ export default defineComponent ({
         dayStatus.value = 'light'
       }
     }, 3600000)
-    return { menu, handleMenuClick, user, dayStatus }
+    return { menu, handleMenuClick, user, dayStatus, checkedMenu }
   }
 })
 </script>
@@ -71,7 +73,7 @@ export default defineComponent ({
         </div>
       </li>
       <li class="tip">Happy {{dayStatus}} ~</li>
-      <li class="menu" v-for="(item, index) in menu" :key="index" @click="handleMenuClick(item.route)">
+      <li class="menu" v-for="(item, index) in menu" :key="index" :class="checkedMenu === item.route ? 'checked' : ''" @click="handleMenuClick(item.route)">
         <i class="iconfont" :class="item.icon"></i>
         {{item.label}}
       </li>
@@ -119,7 +121,7 @@ export default defineComponent ({
         margin-top: 10px;
         cursor: pointer;
       }
-      .menu:hover {
+      .menu:hover,.menu.checked {
         opacity: 0.5;
         color: white;
       }
