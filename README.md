@@ -23,10 +23,19 @@ npm init vue@latest
 16.15.1
 
 # plugin
-Vue Language Features(Volar) + Typescript Vue plugin(Volar)
+~~Vue Language Features(Volar) + Typescript Vue plugin(Volar)~~
+instead with Vue-Offical
 
 # Note
 ##### piana 
 本质上(可以看作)是将store持久化，其他交给开发
 ##### vite --host
 --host 命令用于开放ip(包括127.0.0.1)，否则只能localhost访问应用，原因未知
+
+##### something important
+及时提交代码，哪怕网络不通顺，也要及时提交或者转存
+20250223电脑系统损坏，代码丢失
+
+##### concurrently 可能安装失败
+npm install concurrently --save-dev
+清除缓存 npm cache clean -force

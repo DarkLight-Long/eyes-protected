@@ -1,6 +1,6 @@
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { defineComponent, ref, watch } from 'vue'
+import { useRouter } from 'vue-router'
 
 export default defineComponent ({
   name: 'LefyMenu',
@@ -16,19 +16,19 @@ export default defineComponent ({
         id: 2,
         icon: 'icon-eyesCategory',
         label: '功能',
-        route: '功能'
+        route: 'Function'
       },
       {
         id: 3,
         icon: 'icon-eyesProfile',
         label: '个人',
-        route: '个人'
+        route: 'Personal'
       },
       {
         id: 4,
         icon: 'icon-eyesMessage',
         label: '消息',
-        route: 'message'
+        route: 'Message'
       },
       {
         id: 5,
@@ -43,19 +43,31 @@ export default defineComponent ({
       router.push({ path: route })
       checkedMenu.value = route
     }
+
+    watch(router.currentRoute, () => {
+      console.log(router.currentRoute.value);
+      
+      checkedMenu.value = router.currentRoute.value.path.slice(1)
+    })
+
     const user = {
       name: 'Admin',
       account: 'root'
     }
     const dayStatus = ref('light')
-    setInterval(() => {
-      const datehour = new Date().getHours()
+    function checkDateStatus() {
+      const datehour = new Date().getHours()      
       if (datehour >= 20 || datehour <= 5) {
         dayStatus.value = 'night'
       } else {
         dayStatus.value = 'light'
       }
+    }
+    checkDateStatus()
+    setInterval(() => {
+      checkDateStatus()
     }, 3600000)
+    
     return { menu, handleMenuClick, user, dayStatus, checkedMenu }
   }
 })

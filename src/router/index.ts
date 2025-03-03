@@ -12,7 +12,17 @@ const router = createRouter({
       path: '/Message',
       name: 'Message',
       component: () => import('@/views/message/MessageList.vue')
-    }
+    },
+    {
+      path: '/Function',
+      name: 'Function',
+      component: () => import('@/views/windmill/WindCar.vue')
+    },
+    {
+      path: '/Personal',
+      name: 'Personal',
+      component: () => import('@/views/windmill/WindCar.vue')
+    },
     // {
     //   path: '/about',
     //   name: 'about',

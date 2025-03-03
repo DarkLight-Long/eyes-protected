@@ -1,6 +1,6 @@
 import { Notification } from 'electron'
 /**
- * 系统通知
+ * 系统通知  //TODO 疑似废弃
  * @param title 标题
  * @param body 消息内容
  * @param silent 是否提示音

@@ -47,6 +47,7 @@ export default defineComponent ({
 
 <template>
   <div class="top-header">
+    <!-- 路由返回感觉不合理，后需删除 -->
     <i class="back iconfont icon-eyesarrow-left" @click="handleBack"></i>
     <i class="close iconfont icon-eyesclose" @click="handleClose"></i>
   </div>
