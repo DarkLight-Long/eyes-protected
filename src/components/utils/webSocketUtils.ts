@@ -17,7 +17,7 @@ ws.onerror = (event) => {
       errTimes++
       ws.close()
       if (errTimes > 5) {
-        console.log('重试连接超5次，不在连接')
+        console.log('重试连接超5次，不再连接')
         clearInterval(func)
         return
       } else {

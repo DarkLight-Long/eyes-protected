@@ -10,7 +10,7 @@ export default defineComponent ({
         id: 1,
         icon: 'icon-eyesHome',
         label: '主页',
-        route: '/'
+        route: 'Home'
       },
       {
         id: 2,
@@ -34,19 +34,17 @@ export default defineComponent ({
         id: 5,
         icon: 'icon-eyesSetting',
         label: '设置',
-        route: '设置'
+        route: '/'
       }
     ]
     const router = useRouter()
-    const checkedMenu = ref({})
-    const handleMenuClick = (route : string) => {
+    const checkedMenu = ref('Home')
+    const handleMenuClick = (route : string) => {     
       router.push({ path: route })
       checkedMenu.value = route
     }
 
     watch(router.currentRoute, () => {
-      console.log(router.currentRoute.value);
-      
       checkedMenu.value = router.currentRoute.value.path.slice(1)
     })
 

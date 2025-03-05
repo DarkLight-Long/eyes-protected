@@ -19,7 +19,8 @@ export enum ChannelMsgFlag {
   CLOSE = 'close',
   WELCOME = 'welcome',
   NORMAL = 'normal',
-  TIP = 'tip'
+  TIP = 'tip',
+  NEW_WIN = 'newWin'
 }
 /**
  * 消息体

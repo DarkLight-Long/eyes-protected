@@ -5,23 +5,41 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'Home',
-      component: () => import('@/views/windmill/WindCar.vue')
+      redirect: '/Home',
+      component: () => import('@/views/main/MainWindow.vue'),
+      children: [
+        {
+          path: 'Home',
+          name: 'Home',
+          component: () => import('@/views/main/windmill/WindCar.vue')
+        },
+        {
+          path: 'Message',
+          name: 'Message',
+          component: () => import('@/views/main/message/MessageList.vue')
+        },
+        {
+          path: 'Function',
+          name: 'Function',
+          component: () => import('@/views/main/function/Function.vue')
+        },
+        {
+          path: 'Personal',
+          name: 'Personal',
+          component: () => import('@/views/other/live2d/Live2dCartoon.vue')
+        },
+      ]
     },
     {
-      path: '/Message',
-      name: 'Message',
-      component: () => import('@/views/message/MessageList.vue')
-    },
-    {
-      path: '/Function',
-      name: 'Function',
-      component: () => import('@/views/windmill/WindCar.vue')
-    },
-    {
-      path: '/Personal',
-      name: 'Personal',
-      component: () => import('@/views/windmill/WindCar.vue')
+      path: '/otherWin',
+      component: () => import('@/views/other/OtherWindow.vue'),
+      children: [
+        {
+          path: 'Live2dCartoon',
+          name: 'Live2dCartoon',
+          component: () => import('@/views/other/live2d/Live2dCartoon.vue')
+        },
+      ]
     },
     // {
     //   path: '/about',
@@ -32,6 +50,15 @@ const router = createRouter({
     //   component: () => import('../views/AboutView.vue')
     // }
   ]
+})
+
+router.beforeEach((to, from, next) => {
+  // other window控制
+  if (location.pathname.indexOf('other') != -1 && to.fullPath != location.pathname) {
+    next({path: location.pathname})
+  } else {
+    next()
+  }  
 })
 
 export default router
