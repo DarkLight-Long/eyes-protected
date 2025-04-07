@@ -38,19 +38,20 @@ const createOtherWindow = () => {
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
-      contextIsolation: false
+      contextIsolation: false,
+      webSecurity: false //处理加载本地文件问题
     }
   })
 
   if (isDev) {
-    win.loadURL('http://127.0.0.1:3000/otherWin/Live2dCartoon')
-    // win.loadURL('http://127.0.0.1:3000?transfer=true')
+    // win.loadURL('http://127.0.0.1:3000/otherWin/Live2dCartoon')
+    win.loadURL('http://127.0.0.1:3000?otherWin=Live2dCartoon')
   } else {
-    win.loadFile(path.join(__dirname, '../dist/index.html'))
+    win.loadFile(path.join(__dirname, '../dist/index.html'), {search: 'otherWin=Live2dCartoon'})
   }
-  if (isDev) {
+  // if (isDev) {
     win.webContents.openDevTools()
-  }
+  // }
   return win
 }
 
@@ -89,7 +90,7 @@ ipcMain.on('port', (event) => {
           handleClose()
           break
         case 'welcome':
-          notification('应用启动', '应用启动')
+          notification('应用启动', '欢迎使用本应用')
           break
         case 'normal':
           notification(msg.data.msg.title, msg.data.msg.body, true, 'never')
@@ -122,7 +123,6 @@ function handleNewWin() {
 function handleTransferWin(flag = null) {
   let isHide = false
   BrowserWindow.getAllWindows().forEach(item => {
-    console.log(item.isVisible());
     if (item.isVisible() && !isHide ) {
       item.hide()
       isHide = true

@@ -1,6 +1,6 @@
 {
   "extends": "@vue/tsconfig/tsconfig.web.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "src/**/**/*.vue", "src/*.vue"],
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "src/**/**/*.vue", "src/*.vue", "src/**/**/**/*.vue"],//TODO 待优化
   "exclude": ["node_modules"],
   "compilerOptions": {
     "baseUrl": ".",

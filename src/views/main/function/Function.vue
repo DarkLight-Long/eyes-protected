@@ -9,7 +9,7 @@ function handleClick() {
 
 <template>
   <div>
-    <button @click="handleClick" >切换</button>
+    <button @click="handleClick" >切换窗口</button>
   </div>
 </template>
 <style lang="less" scoped>

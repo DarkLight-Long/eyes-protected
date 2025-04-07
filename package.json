@@ -50,9 +50,10 @@
   "description": "",
   "author": "Dark Light",
   "build": {
-    "appId": "com.my-website.my-app",
-    "productName": "MyApp",
-    "copyright": "Copyright © 2019 DarkLight",
+    "appId": "com.my-app.eyes-protected",
+    "productName": "eyes-protected",
+    "copyright": "Copyright © 2025 DarkLight-Long",
+    "icon": "./src/assets/sun.jpeg",
     "nsis": {
       "oneClick": false,
       "allowToChangeInstallationDirectory": true

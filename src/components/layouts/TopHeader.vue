@@ -69,6 +69,7 @@ export default defineComponent ({
       
       margin-left: 10px;
       z-index: 99;
+      cursor: pointer;
     }
     .close {
       // 解决 解决无边框不可拖拽时导致的按钮不可点击
@@ -76,6 +77,7 @@ export default defineComponent ({
 
       margin-right: 10px;
       z-index: 99;
+      cursor: pointer;
     }
   }
 

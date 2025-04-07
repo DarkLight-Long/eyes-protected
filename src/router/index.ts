@@ -26,7 +26,7 @@ const router = createRouter({
         {
           path: 'Personal',
           name: 'Personal',
-          component: () => import('@/views/other/live2d/Live2dCartoon.vue')
+          component: () => import('@/views/main/personal/Personal.vue')
         },
       ]
     },
@@ -54,11 +54,20 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   // other window控制
-  if (location.pathname.indexOf('other') != -1 && to.fullPath != location.pathname) {
-    next({path: location.pathname})
-  } else {
-    next()
-  }  
+  // if (location.pathname.indexOf('other') != -1 && to.fullPath != location.pathname) {
+  //   next({path: location.pathname})
+  // } else {
+  //   next()
+  // }  
+  if (location.search != '' && location.search.indexOf('otherWin') === 1) {    
+    const arr = location.search.slice(1).split('=')
+    const path = '/' + arr.join('/')
+    if (to.fullPath != path) {
+      next({path: path})
+      return
+    }
+  }
+  next()
 })
 
 export default router

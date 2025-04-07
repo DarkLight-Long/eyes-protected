@@ -1,6 +1,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue';
 import { sendChannelMsg, ChannelMsgFlag, ChannelMsg } from '@/components/utils/channelUtils'
+import "https://fastly.jsdelivr.net/npm/live2d-widgets@0/autoload.js" //TODO live2d待优化
 export default defineComponent({
   name: 'Live2dCartoon',
   setup() {

@@ -11,6 +11,7 @@ Typescript +
 
 ## Help
 [文章](https://blog.csdn.net/weixin_30230009/article/details/124011634)
+[文章2](https://www.cnblogs.com/pengjiali/p/16732090.html)
 
 ## Start
 ### init
