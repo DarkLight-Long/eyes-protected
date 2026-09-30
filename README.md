@@ -40,3 +40,10 @@ instead with Vue-Offical
 ##### concurrently 可能安装失败
 npm install concurrently --save-dev
 清除缓存 npm cache clean -force
+
+##### Live2d
+Live2d暂时直接使用来源
+[Live2d地址](https://github.com/DarkLight-Long/live2d-widget/tree/master)
+
+##### 安装依赖失败
+可能是node版本不对，

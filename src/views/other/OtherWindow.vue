@@ -15,9 +15,9 @@ export default defineComponent({
 </template>
 <style lang="less" scoped>
   .test {
-    width: 100px;
-    height: 100px;
-    background-color: red;
+    width: 400px;
+    height: 400px;
+    background-color: rgba(0, 0, 0, 0);
     -webkit-app-region: drag;
   }
 </style>

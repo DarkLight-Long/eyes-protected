@@ -34,7 +34,7 @@ export default defineComponent ({
         id: 5,
         icon: 'icon-eyesSetting',
         label: '设置',
-        route: '/'
+        route: 'Set'
       }
     ]
     const router = useRouter()

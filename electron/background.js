@@ -31,10 +31,13 @@ const createMainWindows = () => {
 // 创建副窗口（TODO 待修改）
 const createOtherWindow = () => {
   const win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 400,
+    height: 400,
+    resizable: false,
     frame: false,
+    transparent: true,
     show: false,
+    type: 'toolbar',
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'),
       nodeIntegration: true,
