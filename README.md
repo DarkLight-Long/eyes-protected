@@ -1,53 +1,48 @@
-# eyes-protected-exe
-## Description
-Remind myself to take care of my eyes
+# eyes-protect2
 
-## Tech
-[Vue3](https://staging-cn.vuejs.org/) +
-Typescript +
-[pinia](https://pinia.vuejs.org/) +
-[vueRouter](https://router.vuejs.org/zh/) +
-[electron](https://www.electronjs.org/)
+This template should help get you started developing with Vue 3 in Vite.
 
-## Help
-[文章](https://blog.csdn.net/weixin_30230009/article/details/124011634)
-[文章2](https://www.cnblogs.com/pengjiali/p/16732090.html)
+## Recommended IDE Setup
 
-## Start
-### init
-npm init vue@latest
+[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
 
-# other version 
-[desktop-application-TiXing@1.0](https://github.com/DarkLight-Long/desktop-application-TiXing)
+## Recommended Browser Setup
 
-# Node version
-16.15.1
+- Chromium-based browsers (Chrome, Edge, Brave, etc.):
+  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
+  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
+- Firefox:
+  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
+  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
 
-# plugin
-~~Vue Language Features(Volar) + Typescript Vue plugin(Volar)~~
-instead with Vue-Offical
+## Type Support for `.vue` Imports in TS
 
-# Note
-##### piana 
-本质上(可以看作)是将store持久化，其他交给开发
-##### vite --host
---host 命令用于开放ip(包括127.0.0.1)，否则只能localhost访问应用，原因未知
+TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
 
-##### something important
-及时提交代码，哪怕网络不通顺，也要及时提交或者转存
-20250223电脑系统损坏，代码丢失
+## Customize configuration
 
-##### concurrently 可能安装失败
-npm install concurrently --save-dev
-清除缓存 npm cache clean -force
+See [Vite Configuration Reference](https://vite.dev/config/).
 
-##### Live2d
-Live2d暂时直接使用来源
-[Live2d地址](https://github.com/DarkLight-Long/live2d-widget/tree/master)
+## Project Setup
 
-##### 安装依赖失败
-可能是node版本不对，
+```sh
+npm install
+```
 
+### Compile and Hot-Reload for Development
 
-https://github.com/electron-vite/electron-vite-vue/blob/main/package.json
-https://www.electron.build/v26/docs
+```sh
+npm run dev
+```
+
+### Type-Check, Compile and Minify for Production
+
+```sh
+npm run build
+```
+
+### Lint with [ESLint](https://eslint.org/)
+
+```sh
+npm run lint
+```

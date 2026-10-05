@@ -10,6 +10,8 @@ ipcRenderer.postMessage('port', null, [port2])
  */
 export const sendChannelMsg = (flag: ChannelMsgFlag, msg: ChannelMsg = new ChannelMsg()) => {
   port1.postMessage({ flag, msg })
+  console.log(msg.toString());
+  
 }
 
 /**
@@ -28,4 +30,15 @@ export enum ChannelMsgFlag {
 export class ChannelMsg {
   title: string = ''
   body: string = ''
+  constructor() {}
+  toString() {
+    let str = ''
+    if (this.title != '') {
+      str += this.title
+    }
+    if (this.body != '') {
+      str += this.body
+    }
+    return str
+  }
 }

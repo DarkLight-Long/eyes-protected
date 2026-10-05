@@ -1,7 +1,9 @@
 const path = require('path')
 const { app, BrowserWindow, Menu, ipcMain, Notification } = require('electron')
 
-const isDev = process.env.IS_DEV === 'true' ? true : false
+// const isDev = process.env.IS_DEV === 'true' ? true : false
+// need to be fixed
+const isDev = true
 
 // 创建主窗口
 const createMainWindows = () => {

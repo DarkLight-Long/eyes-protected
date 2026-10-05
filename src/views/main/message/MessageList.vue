@@ -1,5 +1,5 @@
 <script lang="ts">
-import { useCounterStore } from '@/store/counter';
+import { useCounterStore } from '@/stores/counter/counter';
 import { computed, defineComponent, ref, watch } from 'vue';
 
 export default defineComponent({
@@ -32,7 +32,7 @@ export default defineComponent({
     {{msg}}
     <button @click="handleChange">Click</button>
     {{msgCache}}
-    {{counter.counter}}
+    {{counter.count}}
   </div>
 </template>
 
