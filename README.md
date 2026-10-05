@@ -47,3 +47,7 @@ Live2d暂时直接使用来源
 
 ##### 安装依赖失败
 可能是node版本不对，
+
+
+https://github.com/electron-vite/electron-vite-vue/blob/main/package.json
+https://www.electron.build/v26/docs

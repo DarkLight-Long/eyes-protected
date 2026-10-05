@@ -26,3 +26,6 @@
 # 20250327
 ### ~~ref模板引用错误~~
 ### [ToolTip](./src/components/components/toolTip/ToolTip.vue)待完善
+
+# 20261005
+### 项目依赖更换升级
